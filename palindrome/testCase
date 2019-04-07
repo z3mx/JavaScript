@@ -1,42 +1,75 @@
-<html>
-    <head>
-    
-    </head>
-    <body>
-        <h2>Test: isPalindrome?</h2>
-        <p>Example :Deleveled</p>
-        <input id ="datos" name="datos" type="text" placeholder="Enter here the Palindrome" value=""/>
-        <button onclick="evaluateWord()">Eval</button>
-        <p id="Resultado">R:</p>
-    </body>
-    <script type="text/javascript">
-        
-        function print_html(id,toAdd){
-            var tag = document.getElementById(id).innerHTML = toAdd;
-        }
+<html xmlns="http://www.w3.org/1999/xhtml">
 
-        function evaluateWord(){
-            var dattos = document.getElementById("datos").value;
-            //alert(dattos);
-            isPalindrome(dattos);
-        }
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-        function isPalindrome(word) {
-            var toReturn = false;
-            var sL = word.length;
-            var mw = sL / 2;
-            for (var i = 0; i < mw + 1; i++) {
-              var fw = word[i];
-              var bw = word[word.length-1 -( i)];
-              console.log(fw+" "+bw);
-              if (fw === bw) {
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4">
+
+            </div>
+            <div class="col-sm-4">
+                <h2>Test: isPalindrome?</h2>
+                <p>Example :Deleveled</p>
+                <input id="datos" name="datos" type="text" placeholder="Enter here the Palindrome" value="" />
+                <button onclick="evaluateWord()">Eval</button>
+                <p id="Resultado">R:</p>
+            </div>
+            <div class="col-sm-4">
+
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+
+    function print_html(id, toAdd) {
+        var tag = document.getElementById(id).innerHTML = toAdd;
+    }
+
+    function evaluateWord() {
+        var dattos = document.getElementById("datos").value;
+        //alert(dattos);
+        isPalindrome(dattos);
+    }
+
+    function isPalindrome(word) {
+        var toReturn = false;
+        var sL = word.length;
+        var mw = sL / 2;
+        for (var i = 0; i < mw + 1; i++) {
+            var fw = word[i];
+            var bw = word[word.length - 1 - (i)];
+            console.log(fw + " " + bw);
+            if (fw === bw) {
                 toReturn = true;
-              }
             }
-            print_html("Resultado","the Results is: "+toReturn);
-            return toReturn;
-          }
+        }
+
+        print_html("Resultado", "the Results is: " + coloringResult(toReturn)+ " Evaluating: "+word);
+        return toReturn;
+    }
+    function coloringResult(result){
+        var th = "";
+        switch(result){
+            case true:
+                th = "<span style='color:#1E90FF;font-weight:bold;'>true</span>";  
+            break;
+            case false:
+                th = "<span style='color:#FF0000;font-weight:bold;'>false</span>";
+            break;
+        }
+        return th;
+    }
           //var word = "Deleveled";//DataSpource
           //console.log(isPalindrome(word));
-    </script>
+</script>
+
 </html>
