@@ -1,0 +1,42 @@
+<html>
+    <head>
+    
+    </head>
+    <body>
+        <h2>Test: isPalindrome?</h2>
+        <p>Example :Deleveled</p>
+        <input id ="datos" name="datos" type="text" placeholder="Enter here the Palindrome" value=""/>
+        <button onclick="evaluateWord()">Eval</button>
+        <p id="Resultado">R:</p>
+    </body>
+    <script type="text/javascript">
+        
+        function print_html(id,toAdd){
+            var tag = document.getElementById(id).innerHTML = toAdd;
+        }
+
+        function evaluateWord(){
+            var dattos = document.getElementById("datos").value;
+            //alert(dattos);
+            isPalindrome(dattos);
+        }
+
+        function isPalindrome(word) {
+            var toReturn = false;
+            var sL = word.length;
+            var mw = sL / 2;
+            for (var i = 0; i < mw + 1; i++) {
+              var fw = word[i];
+              var bw = word[word.length-1 -( i)];
+              console.log(fw+" "+bw);
+              if (fw === bw) {
+                toReturn = true;
+              }
+            }
+            print_html("Resultado","the Results is: "+toReturn);
+            return toReturn;
+          }
+          //var word = "Deleveled";//DataSpource
+          //console.log(isPalindrome(word));
+    </script>
+</html>
